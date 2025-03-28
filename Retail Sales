@@ -1,0 +1,8 @@
+SELECT DATENAME(mm, Date) AS 'Month',
+SUM(TRY_CAST(([Total Amount]) as int)) as 'Revenue'
+
+
+FROM retailsales as s
+GROUP BY DATENAME(mm, Date), DATEPART(mm, Date) -- Group by both name and number
+
+ORDER BY DATEPART(mm, Date) -- Order by the hidden number
